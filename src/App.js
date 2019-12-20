@@ -1,17 +1,48 @@
-import React from "react"
-import TodoItems from './components/TodoItems/TodoItems';
-import todosItemsData from './Data/todosData';
-// import ContactCard from "./components/ContactCard/ContactCard";
+import React, { Component } from "react"
 
-function App() {
-    const todosItems = todosItemsData.map(item =>  <TodoItems key={item.id} id = {item.id} text = {item.text} completed = {item.completed} />
-    )
-    return (
 
-        <div className = "todo-list">
-            {todosItems}
-        </div>
-    )
+// #1
+class App extends Component {
+    render(){
+        return (
+            <div>
+                <Header username="Bob" />
+                <Greeting />
+            </div>
+        )
+    }
+}
+
+// #2
+class Header extends Component {
+    render() {
+        return (
+            <header>
+                <p>Welcome, {this.props.username}!</p>
+            </header>
+        )
+    }
+}
+
+// #3
+class Greeting extends Component {
+
+    render(){
+        const date = new Date()
+        const hours = date.getHours()
+        let timeOfDay
+        
+        if (hours < 12) {
+            timeOfDay = "morning"
+        } else if (hours >= 12 && hours < 17) {
+            timeOfDay = "afternoon"
+        } else {
+            timeOfDay = "night"
+        }
+        return (
+            <h1>Good {timeOfDay} to you, sir or madam!</h1>
+        )
+    }
 }
 
 export default App
