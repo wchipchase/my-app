@@ -9,11 +9,12 @@ class Layout extends Component {
     render() {
         return (
             <div className = 'layout'>
-                <TimeOfDay />
-                {/* <NavBar />
                 <Header />
                 <MainContent />
-                <Footer /> */}
+                <MainContent />
+                <MainContent />
+                <MainContent />
+                <Footer />
             </div>
         )
     }
