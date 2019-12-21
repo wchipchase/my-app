@@ -1,13 +1,20 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+import Wayne from './components/Wayne/Wayne';
 
 
 // #1
 class App extends Component {
+    constructor(){
+        super()
+        this.state = {
+            answer: "Yes"
+        }
+    }
     render(){
         return (
             <div>
-                <Header username="Bob" />
-                <Greeting />
+                <h1>Is state important to know? {this.state.answer}</h1>
+                <Wayne answer={this.state.answer}/>
             </div>
         )
     }
