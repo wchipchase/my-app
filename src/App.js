@@ -1,54 +1,30 @@
-import React, { Component } from "react";
-import Wayne from './components/Wayne/Wayne';
+import React, {Component} from "react"
 
+// Given a stateless functional component, add state to it
+// state should have a property called `isLoggedIn` which is a boolean
+// (true if logged in, false if not)
+// Then, give your best shot at rendering the word "in" if the user is logged in
+// or "out" if the user is logged out.
 
-// #1
 class App extends Component {
     constructor(){
         super()
         this.state = {
-            answer: "Yes"
+            isLoggedIn: false
         }
     }
     render(){
+        let wordDisplay
+        if (this.state.isLoggedIn === true) {
+            wordDisplay = "In"
+        } else {
+            wordDisplay = "Out"
+        }
         return (
             <div>
-                <h1>Is state important to know? {this.state.answer}</h1>
-                <Wayne answer={this.state.answer}/>
+                <h1>You are currently logged {wordDisplay}</h1>
             </div>
-        )
-    }
-}
-
-// #2
-class Header extends Component {
-    render() {
-        return (
-            <header>
-                <p>Welcome, {this.props.username}!</p>
-            </header>
-        )
-    }
-}
-
-// #3
-class Greeting extends Component {
-
-    render(){
-        const date = new Date()
-        const hours = date.getHours()
-        let timeOfDay
-        
-        if (hours < 12) {
-            timeOfDay = "morning"
-        } else if (hours >= 12 && hours < 17) {
-            timeOfDay = "afternoon"
-        } else {
-            timeOfDay = "night"
-        }
-        return (
-            <h1>Good {timeOfDay} to you, sir or madam!</h1>
-        )
+       )
     }
 }
 
